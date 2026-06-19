@@ -1,0 +1,14 @@
+services:
+  randomepisode:
+    build: .
+    container_name: randomepisode
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    volumes:
+      - randomepisode_data:/app/data
+    environment:
+      - DATABASE_URL=file:/app/data/dev.db
+
+volumes:
+  randomepisode_data:

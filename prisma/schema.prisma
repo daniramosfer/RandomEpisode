@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Settings {
+  id              Int      @id @default(1) // Solo habrá un registro de settings
+  plexUrl         String   @default("")
+  plexToken       String   @default("")
+  plexMachineId   String   @default("")
+  updatedAt       DateTime @updatedAt
+}
+
+model WatchedEpisode {
+  userId    String   @default("default")
+  id        String   // ratingKey de Plex (episodio)
+  showId    String   // ratingKey del TV Show para poder borrar el historial por serie
+  title     String
+  showTitle String?
+  season    Int?
+  episode   Int?
+  thumb     String?
+  watchedAt DateTime @default(now())
+
+  @@id([userId, id])
+}
+
+model FavoriteShow {
+  userId    String   @default("default")
+  id        String   // ratingKey de la serie
+  title     String
+  addedAt   DateTime @default(now())
+
+  @@id([userId, id])
+}
+
+model WatchedMovie {
+  userId    String   @default("default")
+  id        String   // ratingKey de Plex (pelicula)
+  title     String
+  year      Int?
+  thumb     String?
+  watchedAt DateTime @default(now())
+
+  @@id([userId, id])
+}
+
+model FavoriteMovie {
+  userId    String   @default("default")
+  id        String   // ratingKey de la pelicula
+  title     String
+  addedAt   DateTime @default(now())
+
+  @@id([userId, id])
+}

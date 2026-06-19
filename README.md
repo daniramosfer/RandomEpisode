@@ -1,20 +1,34 @@
-# RandomEpisode for Plex 🎲📺
+# RandomEpisode & Randomovie for Plex 🎲🍿
 
-RandomEpisode is a sleek, self-hosted web application that connects to your personal Plex server. It allows you to browse your TV show libraries and pick a **truly random episode** to watch, keeping track of your watched history so you never get the same episode twice!
+A sleek, self-hosted web application that connects to your personal Plex server. It allows you to browse your TV show and Movie libraries to pick **truly random content** to watch, keeping track of your watched history so you never get the same thing twice!
 
-Perfect for when you just want to put on a background show (like *The Office*, *Friends*, or *The Simpsons*) but can't decide which episode to watch.
+Perfect for when you just want to put on a background show (like *The Office* or *The Simpsons*) or when you can't decide which movie to watch for movie night.
 
-## ✨ Features
+## 📺 RandomEpisode Mode
+![RandomEpisode Mode](public/images/random_episode_ui.png)
+Pick a random episode from any of your TV shows.
+- **Smart Memory System**: Keeps a local SQLite database of episodes you've already rolled, ensuring you get a fresh episode every time. 
+- **Auto-Reset with Memory**: Once you watch every episode of a show, the system resets the pool but **intelligently excludes the 30% most recently watched episodes** so you don't get episodes that are too fresh in your mind.
 
-- **Plex Integration**: Automatically fetches all your TV Show libraries, series, and episodes directly from your Plex server.
-- **Smart Randomizer**: Keeps a local SQLite database of episodes you've already rolled, ensuring you get a fresh episode every time.
-- **Deep Linking**: Once an episode is selected, you can open it directly in the Plex Web App or use the native Plex App via URI schemes (`plex://`).
-- **Premium UI**: Modern, glassmorphism-inspired dark mode interface built with Next.js.
+## 🎬 Randomovie Mode
+![Randomovie Mode](public/images/random_movie_ui.png)
+Can't decide what movie to watch? Randomovie to the rescue.
+- **Animated Movie Collage**: Features a stunning, infinite diagonal scrolling collage of all your movie posters.
+- **Advanced Filtering**: Filter your random roll by **Library**, **Genre**, or **Decade** using our beautiful touch-friendly floating menus.
+- **Compact Floating Player**: The randomly selected movie appears in a sleek floating card without obscuring the background collage.
+- **Favorites Carousel**: Found a movie you love but want to watch it later? Heart it! Your favorites appear in a horizontally scrollable carousel for easy access.
+
+## ✨ General Features
+
+- **Plex Integration**: Automatically fetches all your libraries, series, movies, and metadata directly from your Plex server.
+- **Plex Profiles / Home Users**: Full support for Plex Home! Switch between users right from the top navigation bar to keep watch histories separate (perfect for kids vs adults).
+- **Deep Linking**: Open your selected episode or movie directly in the **Plex Web App** or use the native **Plex App** via URI schemes (`plex://`).
+- **Premium UI**: Modern, glassmorphism-inspired dark mode interface built with Next.js, fully optimized for both desktop and touch devices (tablets).
 - **Privacy First**: Fully self-hosted. Your Plex Token and Server URL are stored locally in a Docker volume and never leave your server.
 
 ## 🚀 Getting Started (Docker)
 
-The easiest way to run RandomEpisode is via Docker. A `docker-compose.yml` file is included.
+The easiest way to run this application is via Docker. A `docker-compose.yml` file is included.
 
 1. Clone this repository:
    ```bash
